@@ -1,7 +1,7 @@
 # import cairo
 import math
 import copy
-
+import os.path
 import colors
 from colors import color
 import svg
@@ -83,14 +83,18 @@ def ellipse_arc_points(x0, y0, a, b, theta1, theta2):
 
 def draw_line(x1, y1, x2, y2, line_width: int = 1):
     col = color.current_color
-    print(f'color line: {col}')
     s.line(stroke=col, strokewidth=line_width, x1=x1, y1=y1, x2=x2, y2=y2)
 
 
 def finish(filename: str = 'output'):
     s.finalize()
     try:
-        s.save(f'output/{filename}.svg')
+        if filename.__contains__('.svg'):
+            if not os.path.exists(f'output/{filename}'):
+                s.save(f'output/{filename}')
+        else:
+            if not os.path.exists(f'output/{filename}.svg'):
+                s.save(f'output/{filename}.svg')
     except IOError as ioe:
         print(ioe)
     finally:

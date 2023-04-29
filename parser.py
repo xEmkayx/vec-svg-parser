@@ -5,8 +5,8 @@ import colors
 from colors import color
 
 
-def parse_file() -> list:
-    with open(filenames.input_file, 'r') as f:
+def parse_file(filename: str = filenames.input_file) -> list:
+    with open(filename, 'r') as f:
         lines = copy.copy(f.readlines())
         for idx, i in enumerate(lines):
             i = i.strip('\n')
@@ -15,8 +15,8 @@ def parse_file() -> list:
         return lines
 
 
-def parse():
-    lines = parse_file()
+def parse(input_filename: str = filenames.input_file, output_filename: str = filenames.output_file):
+    lines = parse_file(input_filename)
     previous_coords = [0, 0]
     for idx, line in enumerate(lines):
         match line[0].lower():
@@ -26,7 +26,7 @@ def parse():
                 b = line[1].split(',')
             case 'oe':
                 if idx+1 == len(lines):
-                    painter_svg.finish(filenames.output_file)
+                    painter_svg.finish(output_filename)
             case 'co':
                 c = int(line[1].split(',')[0])
                 print(f'color: {c}')
