@@ -19,7 +19,7 @@ def parse():
     lines = parse_file()
     previous_coords = [0, 0]
     for idx, line in enumerate(lines):
-        match line[0]:
+        match line[0].lower():
             case 'os':
                 print('neues objekt')
             case 'ob':

@@ -90,7 +90,7 @@ def draw_line(x1, y1, x2, y2, line_width: int = 1):
 def finish(filename: str = 'output'):
     s.finalize()
     try:
-        s.save(f'{filename}.svg')
+        s.save(f'output/{filename}.svg')
     except IOError as ioe:
         print(ioe)
     finally:
