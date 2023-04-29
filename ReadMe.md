@@ -5,6 +5,6 @@ If you're a student that has to use these programs in school but has no access t
 at home, you can simply parse your code with this script and see the result.
 
 # Example
-![Example image](https://raw.githubusercontent.com/xEmkayx/vec-svg-parser/master/jonathan.svg)
+![Example image](https://raw.githubusercontent.com/xEmkayx/vec-svg-parser/master/output/adv.svg)
 
-https://github.com/xEmkayx/vec-svg-parser/blob/e6c923810d157e725137f3179caaaccab47feefc/jonathan.txt#L1-L19
+https://github.com/xEmkayx/vec-svg-parser/blob/0584c7c990f1475d8f668c357dc22659e2a2f10c/input/adv_schild#L1-L49
