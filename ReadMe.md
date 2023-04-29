@@ -7,4 +7,4 @@ at home, you can simply parse your code with this script and see the result.
 # Example
 ![Example image](https://raw.githubusercontent.com/xEmkayx/vec-svg-parser/master/jonathan.svg)
 
-https://github.com/xEmkayx/vec-svg-parser/blob/fd21cffd68aa0f4970d4b1b419e39c9a90168526/jonathan.txt
+https://github.com/xEmkayx/vec-svg-parser/blob/e6c923810d157e725137f3179caaaccab47feefc/jonathan.txt#L1-L19
