@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Input Text and Generate SVG</title>
+    <style>
+      body {
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  color: #fff;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* higher value than div-img */
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  background-color: #555;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #777;
+}
+
+.div-img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 25%;
+  z-index: 1;
+  margin-top: 25%;
+}
+
+.svg {
+  object-fit: contain;
+  overflow: visible;
+}
+    </style>
+  </head>
+  <body>
+    <form method="POST">
+      <textarea name="input_text" rows="10" cols="50"></textarea>
+      <button type="submit">Generate SVG</button>
+    </form>
+    <div class="div-img">
+      {{ svg_text }}
+    </div>
+    <!--
+  <svg viewBox="0 0 500 500">
+      {{ svg_text | safe }}
+    </svg>
+    -->
+  </body>
+</html>

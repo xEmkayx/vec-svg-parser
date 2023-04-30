@@ -48,6 +48,7 @@ def parse(input_filename, output_filename: str = filenames.output_file, online: 
             case 'oe':
                 if idx+1 == len(lines):
                     painter_svg.finish(output_filename)
+                    # return r
             case 'co':
                 c = int(line[1].split(',')[0])
                 # print(f'color: {c}')

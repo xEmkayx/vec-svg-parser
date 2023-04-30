@@ -10,6 +10,8 @@ at home, you can simply parse your code with this script and see the result.
 https://github.com/xEmkayx/vec-svg-parser/blob/0584c7c990f1475d8f668c357dc22659e2a2f10c/input/adv_schild#L1-L49
 
 # How to use
+## Web Editor
+There is a web-editor that works without having to create files. It's reachable via http://127.0.0.1:5000/editor
 ## GUI
 Start the GUI/Webgui and select the input image and output image filename and hit submit. The images are saved
 to the '/static/IMG/' folder

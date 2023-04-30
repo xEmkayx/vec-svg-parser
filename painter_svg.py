@@ -120,5 +120,12 @@ def finish(filename: str = 'output'):
         screen_size_set = False
 
 
+def finalize():
+    s.finalize()
+    global screen_size_set
+    screen_size_set = False
+    return s
+
+
 def set_screensize(width, height):
     pass
