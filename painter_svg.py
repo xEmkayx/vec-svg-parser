@@ -106,11 +106,11 @@ def finish(filename: str = 'output'):
     s.finalize()
     try:
         if filename.__contains__('.svg'):
-            if not os.path.exists(f'static/IMG/{filename}'):
-                s.save(f'static/IMG/{filename}')
+            # if not os.path.exists(f'static/IMG/{filename}'):
+            s.save(f'static/IMG/{filename}')
         else:
-            if not os.path.exists(f'static/IMG/{filename}.svg'):
-                s.save(f'static/IMG/{filename}.svg')
+            # if not os.path.exists(f'static/IMG/{filename}.svg'):
+            s.save(f'static/IMG/{filename}.svg')
     except IOError as ioe:
         print(ioe)
     finally:
