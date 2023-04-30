@@ -32,7 +32,7 @@ def create(wdth, hght):
     global screen_size_set
 
     if not screen_size_set:
-        s.create(wdth+200, hght+200)
+        s.create(wdth+50, hght+50)
         screen_size_set = True
 
 
