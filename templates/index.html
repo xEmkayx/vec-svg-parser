@@ -8,6 +8,13 @@ body {
   background-color: #333;
   color: #fff;
 }
+h1 {
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  margin-top: 5%;
+}
 
 form {
   max-width: 400px;
@@ -67,6 +74,9 @@ input[type="submit"]:hover {
         </style>
     </head>
     <body>
+    <h1 >
+        <a href="http://127.0.0.1:5000/editor">Online Editor</a>
+    </h1>
         <form method="post" enctype="multipart/form-data">
             <label for="input_file">Select input file:</label><br>
             <input type="file" id="input_file" name="input_file"><br><br>
