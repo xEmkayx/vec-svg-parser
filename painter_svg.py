@@ -104,12 +104,10 @@ def finish(filename: str = 'output'):
     try:
         if filename.__contains__('.svg'):
             if not os.path.exists(f'static/IMG/{filename}'):
-                fn = f'static/IMG/{filename}'
-                s.save(fn)
+                s.save(f'static/IMG/{filename}')
         else:
             if not os.path.exists(f'static/IMG/{filename}.svg'):
-                fn = f'static/IMG/{filename}.svg'
-                s.save(fn)
+                s.save(f'static/IMG/{filename}.svg')
     except IOError as ioe:
         print(ioe)
     finally:
@@ -117,7 +115,6 @@ def finish(filename: str = 'output'):
         # time.sleep(2)
         global screen_size_set
         screen_size_set = False
-        print(f'file saved to "{fn}"')
 
 
 def set_screensize(width, height):
