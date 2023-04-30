@@ -1,7 +1,10 @@
 import time
 
-from flask import Flask, request, render_template, Markup
+from flask import Flask, request, render_template, Markup, send_file
+import io
 import os
+import tkinter as tk
+from tkinter import filedialog
 
 import painter_svg
 import parser
@@ -10,6 +13,7 @@ from colors import color
 app = Flask(__name__)
 IMG_FOLDER = os.path.join('static', 'IMG')
 app.config['UPLOAD_FOLDER'] = IMG_FOLDER
+current_svg = ''
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -33,14 +37,34 @@ def index():
 
 @app.route('/editor', methods=['GET', 'POST'])
 def web_ide():
+    global current_svg
     if request.method == 'POST':
-        input_text = request.form['input_text']
-        svg = parse_online(input_text)
-        print(svg)
+        if 'generate_svg' in request.form:
+            input_text = request.form['input_text']
+            svg = parse_online(input_text)
+            # print(svg)
+            current_svg = svg
+            return render_template('ide.html', svg_text=Markup(svg))
 
-        return render_template('ide.html', svg_text=Markup(svg))
-    else:
-        return render_template('ide.html')
+        elif 'save_svg' in request.form:
+            # svg_file = save_svg()
+            print(current_svg)
+            # return send_file(svg_file, as_attachment=True, download_name='image.svg')
+            return send_file(io.BytesIO(str(current_svg).encode()), as_attachment=True, download_name='image.svg')
+    return render_template('ide.html')
+
+
+def save_svg():
+    if current_svg != 0 and current_svg is not None:
+        root = tk.Tk()
+        root.withdraw()
+        file_path = filedialog.asksaveasfilename(defaultextension='.svg', filetypes=[('SVG files', '*.svg')])
+        if not file_path:
+            return None
+        with io.StringIO(current_svg) as f:
+            with open(file_path, 'w') as file:
+                file.write(f.read())
+        return os.path.abspath(file_path)
 
 
 def parse_online(text):
