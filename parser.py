@@ -42,8 +42,8 @@ def parse(input_filename, output_filename: str = filenames.output_file, online: 
                 pass
             case 'ob':
                 b = line[1].split(',')
-                width = int(b[2]) - int(b[0])
-                height = int(b[3]) - int(b[1])
+                width = float(b[2]) - float(b[0])
+                height = float(b[3]) - float(b[1])
                 painter_svg.create(width, height)
             case 'oe':
                 if idx+1 == len(lines):
@@ -65,8 +65,8 @@ def parse(input_filename, output_filename: str = filenames.output_file, online: 
             case 'el':
                 rad = line[1].split(',')
                 x, y = float(rad[0].strip()), float(rad[1].strip())
-                previous_coords = [x, y]
                 painter_svg.el((previous_coords[0], previous_coords[1]), x, y)
+                previous_coords = [x, y]
             case 'es':
                 rad = line[1].split(',')
                 w = line[2].split(',')

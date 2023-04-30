@@ -32,7 +32,7 @@ def create(wdth, hght):
     global screen_size_set
 
     if not screen_size_set:
-        s.create(wdth, hght)
+        s.create(wdth+200, hght+200)
         screen_size_set = True
 
 
@@ -48,7 +48,10 @@ def parse_file() -> list:
 
 def el(p, r1, r2):
     x, y = p
-    s.path(x, y, r1, r2)
+
+    # s.path(x, y, r1, r2)
+    print(x, y)
+    s.ellipse(x, y, r1, r2, 'none', color.current_color, 1)
 
 
 def es(p, r1, r2, w1=0, w2=360):
