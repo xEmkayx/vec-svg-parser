@@ -5,18 +5,34 @@ import colors
 from colors import color
 
 
-def parse_file(filename: str = filenames.input_file) -> list:
-    with open(filename, 'r') as f:
-        lines = copy.copy(f.readlines())
+def parse_file(filename, online: bool = False) -> list:
+    if online:
+        # lines = filename.read()
+        lines = filename.readlines()
+        # for line in lines:
+        #    print(line.decode())
+        # print(lines)
+        # for idx, i in enumerate(lines):
         for idx, i in enumerate(lines):
+            # print(idx, i)
+            i = i.decode()
             i = i.strip('\n')
             a = i.split(' ')
             lines[idx] = a
-        return lines
+
+    else:
+        with open(filename, 'r') as f:
+            lines = copy.copy(f.readlines())
+            for idx, i in enumerate(lines):
+                i = i.strip('\n')
+                a = i.split(' ')
+                lines[idx] = a
+
+    return lines
 
 
-def parse(input_filename: str = filenames.input_file, output_filename: str = filenames.output_file):
-    lines = parse_file(input_filename)
+def parse(input_filename, output_filename: str = filenames.output_file, online: bool = False):
+    lines = parse_file(input_filename, online)
     previous_coords = [0, 0]
     for idx, line in enumerate(lines):
         match line[0].lower():
@@ -24,6 +40,9 @@ def parse(input_filename: str = filenames.input_file, output_filename: str = fil
                 print('neues objekt')
             case 'ob':
                 b = line[1].split(',')
+                width = int(b[2]) - int(b[0])
+                height = int(b[3]) - int(b[1])
+                painter_svg.create(width, height)
             case 'oe':
                 if idx+1 == len(lines):
                     painter_svg.finish(output_filename)

@@ -155,6 +155,10 @@ class SVG(object):
         f = open(path, "w+")
         f.write(str(self))
         f.close()
+        self.clear()
+
+    def clear(self):
+        self.svg_list.clear()
 
 
 """

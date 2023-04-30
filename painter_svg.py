@@ -2,12 +2,16 @@
 import math
 import copy
 import os.path
+import time
+
 import colors
 from colors import color
 import svg
 import filenames
 # import svgwrite
 
+screen_size_set = False
+"""
 with open(filenames.input_file, 'r') as f:
     lines = copy.copy(f.readlines())
     i = 0
@@ -18,9 +22,18 @@ with open(filenames.input_file, 'r') as f:
 
     width = int(lines[i].split(' ')[i].split(',')[2])
     height = int(lines[i].split(' ')[i].split(',')[3])
+"""
 
 s = svg.SVG()
-s.create(width, height)
+# s.create(width, height)
+
+
+def create(wdth, hght):
+    global screen_size_set
+
+    if not screen_size_set:
+        s.create(wdth, hght)
+        screen_size_set = True
 
 
 def parse_file() -> list:
@@ -90,12 +103,19 @@ def finish(filename: str = 'output'):
     s.finalize()
     try:
         if filename.__contains__('.svg'):
-            if not os.path.exists(f'output/{filename}'):
-                s.save(f'output/{filename}')
+            if not os.path.exists(f'static/IMG/{filename}'):
+                s.save(f'static/IMG/{filename}')
         else:
-            if not os.path.exists(f'output/{filename}.svg'):
-                s.save(f'output/{filename}.svg')
+            if not os.path.exists(f'static/IMG/{filename}.svg'):
+                s.save(f'static/IMG/{filename}.svg')
     except IOError as ioe:
         print(ioe)
     finally:
         print(s)
+        # time.sleep(2)
+        global screen_size_set
+        screen_size_set = False
+
+
+def set_screensize(width, height):
+    pass
