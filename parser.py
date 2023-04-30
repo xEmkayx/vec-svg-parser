@@ -38,7 +38,8 @@ def parse(input_filename, output_filename: str = filenames.output_file, online: 
     for idx, line in enumerate(lines):
         match line[0].lower():
             case 'os':
-                print('neues objekt')
+                # print('neues objekt')
+                pass
             case 'ob':
                 b = line[1].split(',')
                 width = int(b[2]) - int(b[0])
@@ -49,7 +50,7 @@ def parse(input_filename, output_filename: str = filenames.output_file, online: 
                     painter_svg.finish(output_filename)
             case 'co':
                 c = int(line[1].split(',')[0])
-                print(f'color: {c}')
+                # print(f'color: {c}')
                 color.get_colors(c)
             case 'ma':
                 s = line[1].split(',')
