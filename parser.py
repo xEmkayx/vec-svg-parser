@@ -3,6 +3,7 @@ import painter_svg
 import filenames
 import colors
 from colors import color
+import argparse
 
 
 def parse_file(filename, online: bool = False) -> list:
@@ -78,7 +79,12 @@ def parse(input_filename, output_filename: str = filenames.output_file, online: 
 
 
 def main():
-    parse()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-i", "--input-file", help="Path to the input file", required=True)
+    parser.add_argument("-o", "--output-file", help="The output filename (filename only!)", required=True)
+    args = parser.parse_args()
+
+    parse(input_filename=args.input_file, output_filename=args.output_file, online=False)
 
 
 if __name__ == '__main__':
