@@ -73,6 +73,7 @@ def es(p, r1, r2, w1=0, w2=360):
     sweep_flag = 0 if r1 < 0 else 1
     large_flag = 1 if w2 - w1 > 180 or w1-w2 > 180 else 0
 
+    print(f'sweep flag: {sweep_flag}\tlarge_flac: {large_flag}')
     # create path element for ellipse
     s.path(apx, apy, r1, r2, counter_clockwise=sweep_flag, large_arc=large_flag,
            x2=epx, y2=epy, stroke=color.current_color)

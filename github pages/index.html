@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Input Text and Generate SVG</title>
+    <!--
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    -->
+  </head>
+  <body>
+    <form method="POST">
+        <label for="svg-input">Enter SVG code:</label>
+      <textarea id="svg-input"></textarea>
+      <button id="render-btn">Render SVG</button>
+      <button type="submit" name="save_svg">Save SVG</button>
+      <input type="hidden" name="svg_text" id="svg_text" value="">
+    </form>
+    <div class="div-img" id="svg-container">
+    </div>
+    <script src="./main.js"></script>
+    <!--
+  <script>
+        $(document).ready(function() {
+            $('#save_svg').click(function() {
+                var svg_text = $('#svg_text').val();
+                if (svg_text) {
+                    var blob = new Blob([svg_text], {type: 'image/svg+xml'});
+                    var url = URL.createObjectURL(blob);
+                    var a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'image.svg';
+                    a.click();
+                }
+            });
+        });
+    </script>
+    -->
+  </body>
+</html>
