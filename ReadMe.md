@@ -1,3 +1,7 @@
+# INFO
+You can also use the webeditor without downloading anything at 
+https://xemkayx.github.io/vec-svg-parser-webapp/
+
 # Parse .vec files to .svg images
 Render images from .vec files created by programs like "Pictures by PC" or "isycam". 
 Syntax is limited to these languages.
